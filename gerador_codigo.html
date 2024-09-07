@@ -51,7 +51,8 @@
 						<option value="pha">PHA</option>
 					</select>
 					<input id="input-field" type="text" placeholder="Digite aqui..."
-						class="border border-dullblue rounded px-4 py-2 flex-1 max-w-xs md:max-w-sm">
+						class="border border-dullblue rounded px-4 py-2 flex-1 max-w-xs md:max-w-sm" pattern="[A-Za-z]*"
+						title="Apenas letras são permitidas">
 				</div>
 				<button onclick="generateCode()" class="bg-bluewood text-white px-4 py-2 rounded">Gerar Código</button>
 				<div id="result" class="text-balticsea text-2xl font-extrabold"></div>
@@ -62,8 +63,14 @@
 	<script>
 		async function generateCode() {
 			const type = document.getElementById('type-select').value;
-			const input = document.getElementById('input-field').value;
+			const inputField = document.getElementById('input-field');
+			const input = inputField.value;
 			const resultDiv = document.getElementById('result');
+
+			if (!/^[A-Za-z]*$/.test(input)) {
+				alert('Por favor, insira apenas letras de A a Z.');
+				return;
+			}
 
 			try {
 				const response = await fetch(`https://bibliocodes-api.onrender.com/${type}/${input}`);
