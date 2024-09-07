@@ -45,13 +45,13 @@
 			</div>
 
 			<div class="flex flex-col items-center gap-4">
-				<div class="flex items-center gap-4 w-full">
+				<div class="flex flex-col md:flex-row items-center gap-4 w-full">
 					<select id="type-select" class="border border-dullblue rounded px-4 py-2 flex-1">
 						<option value="cutter">Cutter</option>
 						<option value="pha">PHA</option>
 					</select>
 					<input id="input-field" type="text" placeholder="Digite aqui..."
-						class="border border-dullblue rounded px-4 py-2 flex-1">
+						class="border border-dullblue rounded px-4 py-2 flex-1 max-w-xs md:max-w-sm">
 				</div>
 				<button onclick="generateCode()" class="bg-bluewood text-white px-4 py-2 rounded">Gerar Código</button>
 				<div id="result" class="text-balticsea text-2xl font-extrabold"></div>
